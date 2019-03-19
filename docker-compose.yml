@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  osrm:
+    image: osrm/osrm-backend:v${OSRM_VERSION}
+    restart: unless-stopped
+    volumes:
+      - ${DATA_DIR}:/data
+    command: ["osrm-routed", "/data/${OSRM_FILENAME}"]
